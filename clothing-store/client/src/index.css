@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { --header-h: 64px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-sans antialiased; font-weight: 400; }
+  h1, h2, h3 { @apply font-display; font-weight: 400; }
+  :focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+  ::selection { background: #D8CFC2; }
+  input[type='number']::-webkit-inner-spin-button { opacity: 1; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10; }
+  .btn { @apply inline-flex items-center justify-center gap-2 bg-ink px-6 py-3.5 text-sm font-medium tracking-wide text-paper transition-colors hover:bg-stone disabled:cursor-not-allowed disabled:bg-stone/60; }
+  .btn-outline { @apply inline-flex items-center justify-center gap-2 border border-ink px-6 py-3.5 text-sm font-medium tracking-wide transition-colors hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-ghost { @apply inline-flex items-center gap-1.5 text-sm underline decoration-1 underline-offset-4 hover:text-stone; }
+  .btn-sm { @apply px-3 py-2 text-xs; }
+  .label { @apply mb-1.5 block text-xs font-medium text-stone; }
+  .input { @apply w-full border border-ink/20 bg-white px-3.5 py-3 text-sm outline-none transition-colors placeholder:text-stone/70 focus:border-ink; }
+  .input-error { @apply border-sale; }
+  .field-error { @apply mt-1 text-xs text-sale; }
+  .chip { @apply border border-ink/20 px-3 py-2 text-xs transition-colors hover:border-ink; }
+  .chip-active { @apply border-ink bg-ink text-paper; }
+  .badge { @apply inline-block px-2 py-1 text-[11px] font-medium; }
+  .link-underline { @apply bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-300 hover:bg-[length:100%_1px]; background-image: linear-gradient(currentColor, currentColor); }
+  .table-x { @apply w-full text-left text-sm; }
+  .table-x th { @apply border-b border-ink/15 px-3 py-3 text-xs font-medium text-stone; }
+  .table-x td { @apply border-b border-ink/10 px-3 py-3 align-middle; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
